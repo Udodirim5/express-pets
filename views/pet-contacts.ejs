@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pet Contacts | Pet Adoption</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+    <div class="page-section">
+        <div class="page-section-inner">
+            <a href="/admin" class="small-link">&laquo; Back to admin dashboard</a>
+            <h1 class="page-section-title mb-big">Contact List for <%= pet.name %>
+            </h1>
+
+            <% if(contacts.length) { %>
+
+                <table class="contact-list">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                    </tr>
+                    <% contacts.forEach(contact=> { %>
+                        <tr>
+                            <td>
+                                <%= contact.name %>
+                            </td>
+                            <td>
+                                <%= contact.email %>
+                            </td>
+                            <td>
+                                <%= contact.comment %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </table>
+
+                <% } else { %>
+                    <div class="no-msg">
+                        <p class="n-msg">No messages found for this pet.</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                            <path
+                                d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                        </svg>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2023 Fake Adoption Center. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
